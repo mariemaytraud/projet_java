@@ -8,12 +8,16 @@ package acceuil;
  *
  * @author cleme
  */
+import calcul.CalculPanel;
+import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 public class JeuMenuBar extends JMenuBar{
-    public JeuMenuBar() {
+    private JFrame parentFrame;
+    public JeuMenuBar(JFrame parentFrame) {
+        this.parentFrame = parentFrame;
         // Les entêtes du menu
         JMenu jeu = new JMenu("Jeux");
         JMenu niv = new JMenu("Niveaux");
@@ -34,6 +38,11 @@ public class JeuMenuBar extends JMenuBar{
         this.add(jeu);
         this.add(niv);
         this.add(admin);
+        calcul.addActionListener(e -> {
+        parentFrame.setContentPane(new CalculPanel(parentFrame));
+        parentFrame.revalidate();
+        parentFrame.repaint();
+        });
         niv1.addActionListener(e -> System.out.println("niv1"));
         niv2.addActionListener(e -> System.out.println("niv2"));
         mdp.addActionListener(e -> System.out.println("admin"));

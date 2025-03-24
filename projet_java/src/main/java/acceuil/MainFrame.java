@@ -32,7 +32,7 @@ public class MainFrame extends JFrame {
     // Initialisation des composants
     JeuPanel jeu = new JeuPanel(this);
     NiveauPanel niv = new NiveauPanel();
-    JeuMenuBar menu = new JeuMenuBar();
+    JeuMenuBar menu = new JeuMenuBar(this);
 
     // Ajout des composants
     root.add(entete, BorderLayout.PAGE_START);
