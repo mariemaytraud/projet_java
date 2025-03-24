@@ -5,11 +5,8 @@
 package calcul;
 
 import acceuil.EntetePanel;
-import java.awt.BorderLayout;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  *
@@ -22,9 +19,11 @@ public class CalculPanel extends JPanel {
         // Ajouter l'entête avec le bouton retour 
         EntetePanel entete = new EntetePanel("Calcul Mental", parentFrame);
         add(entete, BorderLayout.NORTH);
-
-        // Contenu du panneau
-        JLabel label = new JLabel("Bienvenue dans Calcul Mental !", SwingConstants.CENTER);
-        add(label, BorderLayout.CENTER);
+        
+        BoutonPanel boutonPanel = new BoutonPanel();
+        add(boutonPanel, BorderLayout.SOUTH);
+        
+        ZonePanel zonePanel = new ZonePanel();
+        add(zonePanel, BorderLayout.CENTER);
     }
 }

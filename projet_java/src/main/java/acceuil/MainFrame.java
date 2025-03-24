@@ -26,7 +26,7 @@ public class MainFrame extends JFrame {
     private void initGui() {
     Container root = this.getContentPane(); // On modifie le contenu de la JFrame
     BorderLayout b1 = new BorderLayout(5, 5);
-    root.setLayout(b1);EntetePanel entete = new EntetePanel("Nom du jeu", this);
+    root.setLayout(b1);EntetePanel entete = new EntetePanel("Jeux pour enfant", this);
     
 
     // Initialisation des composants
