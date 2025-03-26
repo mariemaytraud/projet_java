@@ -29,5 +29,6 @@ public class BoutonPanel extends JPanel {
         add(verifierBtn);
         add(solutionBtn);
         add(nouveauBtn);
+        nouveauBtn.addActionListener(e -> System.out.println("new"));
     }
 }

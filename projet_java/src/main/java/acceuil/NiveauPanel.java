@@ -6,6 +6,7 @@ package acceuil;
 
 import calcul.CalculPanel;
 import java.awt.GridLayout;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -16,8 +17,9 @@ import javax.swing.JPanel;
  */
 public class NiveauPanel extends JPanel {
     public NiveauPanel() {
-        GridLayout gl = new GridLayout(0, 1, 3, 3);
+        GridLayout gl = new GridLayout(0, 1, 30, 30);
         this.setLayout(gl);
+        setBorder(BorderFactory.createEmptyBorder(30, 50, 30, 50));
 
         JButton jb1 = new JButton("Niveau 1");
         JButton jb2 = new JButton("Niveau 2");

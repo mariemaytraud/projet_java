@@ -17,20 +17,23 @@ import java.util.Random;
 public class ZonePanel extends JPanel {
     private int nombre1;
     private int nombre2;
+    private String operation;
     private JTextField reponseField;
 
     public ZonePanel() {
-        setBackground(Color.WHITE); // Fond blanc
-        setPreferredSize(new Dimension(400, 200)); // Taille fixe
-        setLayout(new FlowLayout(FlowLayout.CENTER, 20, 50)); // Centrage
+        setBackground(Color.WHITE);
+        setPreferredSize(new Dimension(400, 200));
+        setLayout(new FlowLayout(FlowLayout.CENTER, 20, 50)); //
 
         // Générer deux nombres aléatoires
         Random rand = new Random();
-        nombre1 = rand.nextInt(10) + 1; // Nombre entre 1 et 10
-        nombre2 = rand.nextInt(10) + 1;
+        nombre1 = rand.nextInt(1000) + 1; // Nombre entre 1 et 1000
+        nombre2 = rand.nextInt(1000) + 1;
+        
 
         // Label affichant l'opération
-        JLabel operationLabel = new JLabel(nombre1 + " + " + nombre2 + " = ? ");
+        tirage();
+        JLabel operationLabel = new JLabel(nombre1 + operation + nombre2 + " = ? ");
         operationLabel.setFont(new Font("Arial", Font.BOLD, 18));
 
         // Champ de saisie pour la réponse
@@ -58,13 +61,31 @@ public class ZonePanel extends JPanel {
         try {
             return Integer.parseInt(reponseField.getText());
         } catch (NumberFormatException e) {
-            return -1; // Retourne -1 si aucun nombre valide n'est entré
+            // Afficher un message d'erreur si la saisie est invalide
+            JOptionPane.showMessageDialog(
+                this,
+                "Veuillez entrer un nombre valide !",
+                "Erreur de saisie",
+                JOptionPane.ERROR_MESSAGE
+            );
+            return 0; // Retourne 0 pour éviter un crash
         }
     }
 
     // Méthode pour vérifier la réponse
     public boolean isCorrect() {
-        return getReponse() == (nombre1 + nombre2);
+        int result = 0;
+        switch (operation) {
+            case "+" -> result = nombre1 + nombre2;
+            case "-" -> result = nombre1 - nombre2;
+            case "*" -> result = nombre1 * nombre2;
+        }
+        return getReponse() == result;
+    }
+    
+    private void tirage(){
+        String[] signe = {"+", "-", "*"};
+        Random rand = new Random();
+        operation = signe[rand.nextInt(3)];
     }
 }
-
