@@ -4,21 +4,19 @@
  */
 package dessin;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.util.ArrayList;
-import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JLabel;
 /**
  *
  * @author Alexis Burgos
  */
 public class ArdoisePanel extends JPanel{
    private ArrayList<Point> points = new ArrayList<>(); // Liste des points dessinés
+   private int xor, yor;
 
     public ArdoisePanel() {
         this.setBackground(Color.WHITE);

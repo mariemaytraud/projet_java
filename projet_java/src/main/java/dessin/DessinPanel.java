@@ -5,13 +5,7 @@
 package dessin;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.HeadlessException;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
 import javax.swing.JPanel;
 
 /**
@@ -25,15 +19,13 @@ public class DessinPanel extends JPanel {
     }
 
     private void initGui() {
-        // Créer un conteneur global avec un BorderLayout
         BorderLayout bl = new BorderLayout(5, 5);
         this.setLayout(bl);
-        this.setLayout(new GridLayout(1, 2));
         this.add(new ArdoisePanel(), BorderLayout.CENTER);
         ArdoisePanel ardoise = new ArdoisePanel();
         this.add(ardoise);
         FonctionsDessin boutons = new FonctionsDessin();
-        this.add(boutons);
+        this.add(boutons, BorderLayout.EAST);
     }
 
 }

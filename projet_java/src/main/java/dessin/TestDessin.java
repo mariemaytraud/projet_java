@@ -15,6 +15,7 @@ public class TestDessin {
     public static void main(String[] args) {
         JFrame frame = new JFrame();
         frame.add(new DessinPanel());
+        frame.setSize(600,600);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setVisible(true);
