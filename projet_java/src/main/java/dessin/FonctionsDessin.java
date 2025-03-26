@@ -22,17 +22,17 @@ public class FonctionsDessin extends JPanel {
         JButton vert = new JButton("Vert");
         vert.setBackground(Color.GREEN);
         vert.addActionListener((e) -> {
-            Color couleur = vert.getBackground();
+            couleur = vert.getBackground();
         });
         JButton rouge = new JButton("Rouge");
         rouge.setBackground(Color.RED);
         rouge.addActionListener((e) -> {
-            Color couleur = rouge.getBackground();
+            couleur = rouge.getBackground();
         });
         JButton bleu = new JButton("Bleu");
         bleu.setBackground(Color.BLUE);
         bleu.addActionListener((e) -> {
-            Color couleur = bleu.getBackground();
+            couleur = bleu.getBackground();
         });
         JButton gomme = new JButton("Gomme");
         JButton effacer = new JButton("Tout effacer");
