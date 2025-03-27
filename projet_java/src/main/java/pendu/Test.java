@@ -2,6 +2,7 @@ package pendu;
 
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,8 +17,10 @@ public class Test extends JFrame {
     private char[] motAffiche;  // Mot sous forme "_ _ _ _"
     private int erreurs = 0 ; // init nb d'erreur 
     private JLabel labelErreurs; 
+    
     // Constructeur de la fenêtre
     public Test() {
+        System.out.println("Constructeur Test() appelé...");
         // Définir le titre de la fenêtre
         setTitle("Jeu du Pendu");
 
@@ -56,21 +59,22 @@ public class Test extends JFrame {
     labelErreurs.setFont(new Font("Arial", Font.BOLD, 20));
     labelErreurs.setHorizontalAlignment(SwingConstants.CENTER);
     add(labelErreurs, BorderLayout.CENTER);
-
-        
-// Ajouter le clavier en bas
+   
+    // Ajouter le clavier en bas
     ClavierTestPanel clavier = new ClavierTestPanel(this);
         add(clavier, BorderLayout.SOUTH);
-
+    
 // Rendre la fenêtre visible
         setVisible(true);
-    }
+        System.out.println("Fenêtre rendue visible !");
+ System.out.println("Constructeur Test() appelé...");
+ }
  
     void verifierLettre(char lettre) {
     boolean trouve = false;
     
-    for (int i = 0; i < motADeviner.length(); i++) {
-        if (motADeviner.charAt(i) == lettre) {
+   for (int i = 0; i < motADeviner.length(); i++) {
+       if (motADeviner.charAt(i) == lettre) {
             motAffiche[i] = lettre;
             trouve = true;
         }
@@ -83,20 +87,24 @@ public class Test extends JFrame {
  if (!trouve) {
         erreurs++;
         labelErreurs.setText("Erreurs : " + erreurs + " / 6");
+
 // si le joueur a perdu 
 
 if (erreurs >= 6) {
             JOptionPane.showMessageDialog(this, "Perdu ! Le mot était : " + motADeviner);
             resetGame();
-    // Vérifier si le mot est complété
+            return; 
+}
+    // Si le joueur a trouvé le mot 
     if (new String(motAffiche).equals(motADeviner)) {
         JOptionPane.showMessageDialog(this, "Bravo ! Vous avez trouvé le mot : " + motADeviner);
         resetGame();
     }
 }
+}
 // pour recommencer le jeu si on a gagné ou si on a fait trop d'erreur 
-//private void resetGame() {
 
+    private void resetGame() {
     MotsTest motsTest = new MotsTest();
     motADeviner = motsTest.choisirMot();
     motAffiche = new char[motADeviner.length()];
@@ -109,11 +117,20 @@ if (erreurs >= 6) {
 
     labelMot.setText(new String(motAffiche));
     labelErreurs.setText("Erreurs : 0 / 6");
-}
-    public static void main(String[] args) {
-        // Créer une instance de la fenêtre
-        new Test();
+    
+    // Réactiver tous les boutons du clavier
+    for (Component comp : getContentPane().getComponents()) {
+        if (comp instanceof ClavierTestPanel) {
+            ((ClavierTestPanel) comp).resetClavier();
+        }
     }
+   
+}
+ public static void main(String[] args) {
+      System.out.println("Lancement du jeu...");
+      new Test();
+    }   
+   
 
 }
     

@@ -27,7 +27,7 @@ public class ClavierTestPanel extends JPanel {
             JButton btnLettre = new JButton(String.valueOf(lettre));
             btnLettre.setFont(new Font("Arial", Font.BOLD, 16));
 
-            // Ajouter un écouteur d'événement pour détecter les clics
+            // pour détecter les clics
             btnLettre.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -39,6 +39,12 @@ public class ClavierTestPanel extends JPanel {
             add(btnLettre);  // Ajouter le bouton au clavier
         }
     }
+    
+public void resetClavier() {
+    for (Component comp : getComponents()) {
+        if (comp instanceof JButton) {
+            comp.setEnabled(true);
+        }
+    }
 }
-
-
+}
