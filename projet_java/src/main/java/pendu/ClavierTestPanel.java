@@ -43,6 +43,7 @@ public class ClavierTestPanel extends JPanel {
 public void resetClavier() {
     for (Component comp : getComponents()) {
         if (comp instanceof JButton) {
+            JButton bouton = (JButton) comp;
             comp.setEnabled(true);
         }
     }

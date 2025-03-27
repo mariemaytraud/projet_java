@@ -20,7 +20,7 @@ public class Test extends JFrame {
     
     // Constructeur de la fenêtre
     public Test() {
-        System.out.println("Constructeur Test() appelé...");
+       
         // Définir le titre de la fenêtre
         setTitle("Jeu du Pendu");
 
@@ -66,8 +66,7 @@ public class Test extends JFrame {
     
 // Rendre la fenêtre visible
         setVisible(true);
-        System.out.println("Fenêtre rendue visible !");
- System.out.println("Constructeur Test() appelé...");
+      
  }
  
     void verifierLettre(char lettre) {
@@ -99,6 +98,7 @@ if (erreurs >= 6) {
     if (new String(motAffiche).equals(motADeviner)) {
         JOptionPane.showMessageDialog(this, "Bravo ! Vous avez trouvé le mot : " + motADeviner);
         resetGame();
+                
     }
 }
 }
@@ -120,14 +120,13 @@ if (erreurs >= 6) {
     
     // Réactiver tous les boutons du clavier
     for (Component comp : getContentPane().getComponents()) {
-        if (comp instanceof ClavierTestPanel) {
-            ((ClavierTestPanel) comp).resetClavier();
+        if (comp instanceof ClavierTestPanel clavierTestPanel) {
+            clavierTestPanel.resetClavier();
         }
     }
    
 }
  public static void main(String[] args) {
-      System.out.println("Lancement du jeu...");
       new Test();
     }   
    
