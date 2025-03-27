@@ -5,27 +5,24 @@
 package dessin;
 
 import java.awt.BorderLayout;
-import java.awt.GridLayout;
 import javax.swing.JPanel;
 
 /**
  *
  * @author Alexis Burgos
  */
-public class DessinPanel extends JPanel {
-
-    public DessinPanel() {
+public class DessinPanel2 extends JPanel {
+  public DessinPanel2() {
         initGui();
     }
 
     private void initGui() {
-        BorderLayout bl = new BorderLayout(5, 5);
-        this.setLayout(bl);
+        BorderLayout b2 = new BorderLayout(5, 5);
+        this.setLayout(b2);
         this.add(new ArdoisePanel(), BorderLayout.CENTER);
         ArdoisePanel ardoise = new ArdoisePanel();
         this.add(ardoise);
-        FonctionsDessin boutons = new FonctionsDessin(ardoise);
-        this.add(boutons, BorderLayout.EAST);
-    }
-
+        BoutonsdessinNiv2 boutons2 = new BoutonsdessinNiv2(ardoise);
+        this.add(boutons2, BorderLayout.EAST);
+    }  
 }

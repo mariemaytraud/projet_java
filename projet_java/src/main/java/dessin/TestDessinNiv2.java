@@ -10,14 +10,13 @@ import javax.swing.JFrame;
  *
  * @author Alexis Burgos
  */
-public class TestDessin {
-
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("dessin (niveau 1)");
-        frame.add(new DessinPanel());
+public class TestDessinNiv2 {
+   public static void main(String[] args) {
+        JFrame frame = new JFrame("Dessin (Niveau 2)");
+        frame.add(new DessinPanel2());
         frame.setSize(600,600);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setVisible(true);
-    }
+    } 
 }

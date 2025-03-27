@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package dessin;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -12,13 +13,15 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.util.ArrayList;
 import javax.swing.JPanel;
+
 /**
  *
  * @author Alexis Burgos
  */
-public class ArdoisePanel extends JPanel{
-   private int xor, yor;
-   
+public class ArdoisePanel extends JPanel {
+
+    private int xor, yor;
+    private Color couleurStylo = Color.BLACK;
     public ArdoisePanel() {
         this.setBackground(Color.WHITE);
         addMouseListener(new MouseAdapter() {
@@ -27,19 +30,32 @@ public class ArdoisePanel extends JPanel{
                 xor = e.getX();
                 yor = e.getY();
             }
-            
+
         });
         // Ajouter un écouteur de souris pour dessiner en temps réel
         addMouseMotionListener(new MouseMotionAdapter() {
             @Override
             public void mouseDragged(MouseEvent e) {
                 var gc = ArdoisePanel.this.getGraphics();
-                gc.setColor(Color.blue);
+                gc.setColor(couleurStylo);
                 gc.drawLine(xor, yor, e.getX(), e.getY());
                 xor = e.getX();
                 yor = e.getY();
             }
         });
     }
-    
+
+    public void setCouleurStylo(Color couleur) {
+        this.couleurStylo = couleur;
+    }
+
+    public void effacer() {
+        Graphics g = getGraphics();
+        g.setColor(getBackground());
+        g.fillRect(0, 0, getWidth(), getHeight());
+    }
+
+    public Color getcouleurstylo() {
+        return couleurStylo;
+    }
 }

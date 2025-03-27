@@ -5,39 +5,28 @@
 package dessin;
 
 import java.awt.Color;
-import static java.awt.Color.*;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
 import javax.swing.JPanel;
 
 /**
  *
  * @author Alexis Burgos
  */
-public class FonctionsDessin extends JPanel {
+public class BoutonsdessinNiv2 extends JPanel {
 
     private Color couleur;
 
-    public FonctionsDessin(ArdoisePanel ardoise) {
+    public BoutonsdessinNiv2(ArdoisePanel ardoise) {
         this.setLayout(new GridLayout(0, 1));
-        JButton vert = new JButton("Vert");
-        vert.setBackground(Color.GREEN);
-        vert.addActionListener((e) -> {
-            ardoise.setCouleurStylo(Color.green);
-
-        });
-        JButton rouge = new JButton("Rouge");
-        rouge.setBackground(Color.RED);
-        rouge.addActionListener((e) -> {
-            ardoise.setCouleurStylo(Color.RED);
-
-        });
-        JButton bleu = new JButton("Bleu");
-        bleu.setBackground(Color.BLUE);
-        bleu.addActionListener((e) -> {
-            ardoise.setCouleurStylo(Color.blue);
+        JButton palette = new JButton("Palette de couleurs");
+        palette.setBackground(Color.CYAN);
+        palette.addActionListener((e) -> {
+           Color couleur = JColorChooser.showDialog(null,"aaaa",ardoise.getcouleurstylo());
+           if (couleur != null){
+           ardoise.setCouleurStylo(couleur);
+           }
         });
         JButton gomme = new JButton("Gomme");
         gomme.setBackground(Color.LIGHT_GRAY);
@@ -49,9 +38,7 @@ public class FonctionsDessin extends JPanel {
         effacer.addActionListener((e) -> {
             ardoise.effacer();
         });
-        this.add(vert);
-        this.add(bleu);
-        this.add(rouge);
+        this.add(palette);
         this.add(gomme);
         this.add(effacer);
     }
