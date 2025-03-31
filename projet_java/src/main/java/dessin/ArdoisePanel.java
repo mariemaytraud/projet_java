@@ -4,6 +4,7 @@
  */
 package dessin;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -22,6 +23,8 @@ public class ArdoisePanel extends JPanel {
 
     private int xor, yor;
     private Color couleurStylo = Color.BLACK;
+    private int tailleStylo = 2;
+
     public ArdoisePanel() {
         this.setBackground(Color.WHITE);
         addMouseListener(new MouseAdapter() {
@@ -36,13 +39,15 @@ public class ArdoisePanel extends JPanel {
         addMouseMotionListener(new MouseMotionAdapter() {
             @Override
             public void mouseDragged(MouseEvent e) {
-                var gc = ArdoisePanel.this.getGraphics();
+                Graphics2D gc = (Graphics2D) getGraphics();
                 gc.setColor(couleurStylo);
+                gc.setStroke(new BasicStroke(tailleStylo));
                 gc.drawLine(xor, yor, e.getX(), e.getY());
                 xor = e.getX();
                 yor = e.getY();
             }
         });
+
     }
 
     public void setCouleurStylo(Color couleur) {
@@ -54,8 +59,12 @@ public class ArdoisePanel extends JPanel {
         g.setColor(getBackground());
         g.fillRect(0, 0, getWidth(), getHeight());
     }
-
     public Color getcouleurstylo() {
         return couleurStylo;
     }
+
+    public void setTailleStylo(int taille) {
+        this.tailleStylo = taille;
+    }
+
 }

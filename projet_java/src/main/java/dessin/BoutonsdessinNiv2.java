@@ -27,11 +27,13 @@ public class BoutonsdessinNiv2 extends JPanel {
            if (couleur != null){
            ardoise.setCouleurStylo(couleur);
            }
+           ardoise.setTailleStylo(2);
         });
         JButton gomme = new JButton("Gomme");
         gomme.setBackground(Color.LIGHT_GRAY);
         gomme.addActionListener((e) -> {
             ardoise.setCouleurStylo(Color.white);
+            ardoise.setTailleStylo(20);
         });
         JButton effacer = new JButton("Tout effacer");
         effacer.setBackground(Color.LIGHT_GRAY);

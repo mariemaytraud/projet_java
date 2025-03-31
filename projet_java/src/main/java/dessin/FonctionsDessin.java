@@ -26,23 +26,25 @@ public class FonctionsDessin extends JPanel {
         vert.setBackground(Color.GREEN);
         vert.addActionListener((e) -> {
             ardoise.setCouleurStylo(Color.green);
-
+            ardoise.setTailleStylo(2);
         });
         JButton rouge = new JButton("Rouge");
         rouge.setBackground(Color.RED);
         rouge.addActionListener((e) -> {
             ardoise.setCouleurStylo(Color.RED);
-
+            ardoise.setTailleStylo(2);
         });
         JButton bleu = new JButton("Bleu");
         bleu.setBackground(Color.BLUE);
         bleu.addActionListener((e) -> {
             ardoise.setCouleurStylo(Color.blue);
+            ardoise.setTailleStylo(2);
         });
         JButton gomme = new JButton("Gomme");
         gomme.setBackground(Color.LIGHT_GRAY);
         gomme.addActionListener((e) -> {
             ardoise.setCouleurStylo(Color.white);
+            ardoise.setTailleStylo(20);
         });
         JButton effacer = new JButton("Tout effacer");
         effacer.setBackground(Color.LIGHT_GRAY);
