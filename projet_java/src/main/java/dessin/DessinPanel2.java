@@ -24,5 +24,7 @@ public class DessinPanel2 extends JPanel {
         this.add(ardoise);
         BoutonsdessinNiv2 boutons2 = new BoutonsdessinNiv2(ardoise);
         this.add(boutons2, BorderLayout.EAST);
+        Hautdepage haut = new Hautdepage();
+        this.add(haut,BorderLayout.NORTH);
     }  
 }
