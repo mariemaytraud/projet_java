@@ -14,21 +14,28 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-public class JeuMenuBar extends JMenuBar{
-    private JFrame parentFrame;
-    public JeuMenuBar(JFrame parentFrame) {
+public class JeuMenuBar extends JMenuBar {
+    private final JFrame parentFrame;
+    private final CalculPanel calculPanel; // Référence à CalculPanel
+    private int niveau;
+
+    public JeuMenuBar(JFrame parentFrame, CalculPanel calculPanel) {
         this.parentFrame = parentFrame;
+        this.calculPanel = calculPanel;
+
         // Les entêtes du menu
         JMenu jeu = new JMenu("Jeux");
         JMenu niv = new JMenu("Niveaux");
         JMenu admin = new JMenu("Compte");
-        // Les items du menu calcul
+
+        // Les items du menu
         JMenuItem dessin = new JMenuItem("Ardoise Magique");
         JMenuItem calcul = new JMenuItem("Calcul Mental");
         JMenuItem pendu = new JMenuItem("Pendu");
         JMenuItem niv1 = new JMenuItem("Niveau 1");
         JMenuItem niv2 = new JMenuItem("Niveau 2");
         JMenuItem mdp = new JMenuItem("Mot de passe");
+
         jeu.add(dessin);
         jeu.add(calcul);
         jeu.add(pendu);
@@ -38,13 +45,25 @@ public class JeuMenuBar extends JMenuBar{
         this.add(jeu);
         this.add(niv);
         this.add(admin);
+
+        // Action : Ouvrir le jeu de calcul mental
         calcul.addActionListener(e -> {
-        parentFrame.setContentPane(new CalculPanel(parentFrame));
-        parentFrame.revalidate();
-        parentFrame.repaint();
+            parentFrame.setContentPane(calculPanel);
+            parentFrame.revalidate();
+            parentFrame.repaint();
         });
-        niv1.addActionListener(e -> System.out.println("niv1"));
-        niv2.addActionListener(e -> System.out.println("niv2"));
-        mdp.addActionListener(e -> System.out.println("admin"));
+
+        // Action : Modifier le niveau
+        niv1.addActionListener(e -> {
+            if (calculPanel != null) {
+                calculPanel.setNiveau(1);
+            }
+        });
+
+        niv2.addActionListener(e -> {
+            if (calculPanel != null) {
+                calculPanel.setNiveau(2);
+            }
+        });
     }
 }

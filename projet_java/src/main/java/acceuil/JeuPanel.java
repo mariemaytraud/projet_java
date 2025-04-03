@@ -4,7 +4,6 @@
  */
 package acceuil;
 
-import calcul.CalculPanel;
 import java.awt.Dimension;
 import javax.swing.JPanel;
 
@@ -16,20 +15,22 @@ import java.awt.GridLayout;
 import javax.swing.*;
 
 public class JeuPanel extends JPanel {
+
     private JFrame parentFrame;
-    public JeuPanel(JFrame parentFrame) {
+    private int niveau;
+
+    public JeuPanel(MainFrame parentFrame) {
         this.parentFrame = parentFrame;
         setLayout(new GridLayout(0, 1, 30, 30));
 
         JButton jb1 = new JButton("Ardoise Magique");
         JButton jb2 = new JButton("Calcul Mental");
         JButton jb3 = new JButton("Pendu");
-        
+
         Dimension buttonSize = new Dimension(120, 40);
         jb1.setPreferredSize(buttonSize);
         jb2.setPreferredSize(buttonSize);
         jb3.setPreferredSize(buttonSize);
-
 
         setBorder(BorderFactory.createEmptyBorder(30, 50, 30, 50));
 
@@ -41,9 +42,9 @@ public class JeuPanel extends JPanel {
         add(jb2);
         add(jb3);
         jb2.addActionListener(e -> {
-        parentFrame.setContentPane(new CalculPanel(parentFrame));
-        parentFrame.revalidate();
-        parentFrame.repaint();
+            parentFrame.setContentPane(parentFrame.getCalculPanel());
+            parentFrame.revalidate();
+            parentFrame.repaint();
         });
     }
 }

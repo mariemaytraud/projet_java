@@ -12,16 +12,24 @@ import javax.swing.*;
 import java.awt.*;
 
 public class BoutonPanel extends JPanel {
+    private JButton verifierBtn;
+    private JButton solutionBtn;
+    private JButton nouveauBtn;
+
     public BoutonPanel() {
-        setLayout(new FlowLayout()); // Disposition des boutons en ligne
+        setLayout(new FlowLayout(FlowLayout.CENTER, 30, 0)); // Disposition des boutons en ligne
         setBackground(Color.LIGHT_GRAY); // Fond gris clair
 
         // Création des boutons
-        JButton verifierBtn = new JButton("Vérifier");
-        JButton solutionBtn = new JButton("Solution");
-        JButton nouveauBtn = new JButton("Nouveau");
+        verifierBtn = new JButton("Vérifier");
+        solutionBtn = new JButton("Solution");
+        nouveauBtn = new JButton("Nouveau");
 
-        Dimension buttonSize = new Dimension(120, 40);
+        verifierBtn.setFont(new Font("Arial", Font.BOLD, 30));
+        solutionBtn.setFont(new Font("Arial", Font.BOLD, 30));
+        nouveauBtn.setFont(new Font("Arial", Font.BOLD, 30));
+
+        Dimension buttonSize = new Dimension(200, 60);
         verifierBtn.setPreferredSize(buttonSize);
         solutionBtn.setPreferredSize(buttonSize);
         nouveauBtn.setPreferredSize(buttonSize);
@@ -29,6 +37,17 @@ public class BoutonPanel extends JPanel {
         add(verifierBtn);
         add(solutionBtn);
         add(nouveauBtn);
-        nouveauBtn.addActionListener(e -> System.out.println("new"));
+        
+    }
+    public JButton getVerifierBtn() {
+        return verifierBtn;
+    }
+
+    public JButton getSolutionBtn() {
+        return solutionBtn;
+    }
+
+    public JButton getNouveauBtn() {
+        return nouveauBtn;
     }
 }
