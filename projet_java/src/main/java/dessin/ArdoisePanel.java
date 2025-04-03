@@ -22,7 +22,7 @@ import javax.swing.JPanel;
 public class ArdoisePanel extends JPanel {
 
     private int xor, yor;
-    private Color couleurStylo = Color.BLACK;
+    private Color couleurStylo = Color.BLUE;
     private int tailleStylo = 2;
 
     public ArdoisePanel() {

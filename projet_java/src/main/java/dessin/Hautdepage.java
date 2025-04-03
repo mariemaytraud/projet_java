@@ -25,6 +25,7 @@ public class Hautdepage extends JPanel {
         acceuil.setBackground(blanc);
         JLabel titre = new JLabel();
         titre.setText("Dessin");
+        titre.setForeground(Color.WHITE);
         this.add(titre, BorderLayout.EAST);
         this.setBackground(rouge);
     }

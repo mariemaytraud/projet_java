@@ -4,6 +4,7 @@
  */
 package dessin;
 
+import java.awt.Color;
 import javax.swing.JFrame;
 
 /**

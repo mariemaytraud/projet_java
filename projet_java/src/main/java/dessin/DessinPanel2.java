@@ -5,6 +5,7 @@
 package dessin;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import javax.swing.JPanel;
 
 /**
@@ -26,5 +27,6 @@ public class DessinPanel2 extends JPanel {
         this.add(boutons2, BorderLayout.EAST);
         Hautdepage haut = new Hautdepage();
         this.add(haut,BorderLayout.NORTH);
+        this.setBackground(new Color(122, 89, 201));
     }  
 }
