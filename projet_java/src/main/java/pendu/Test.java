@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
 
    
 public class Test extends JFrame {
@@ -17,7 +18,8 @@ public class Test extends JFrame {
     private char[] motAffiche;  // Mot sous forme "_ _ _ _"
     private int erreurs = 0 ; // init nb d'erreur 
     private JLabel labelErreurs; 
-    
+    private ImagePendu imagePendu ; 
+    private ClavierTestPanel clavier ; 
     // Constructeur de la fenêtre
     public Test() {
        
@@ -61,14 +63,20 @@ public class Test extends JFrame {
     add(labelErreurs, BorderLayout.CENTER);
    
     // Ajouter le clavier en bas
-    ClavierTestPanel clavier = new ClavierTestPanel(this);
-        add(clavier, BorderLayout.SOUTH);
-    
+   // ClavierTestPanel clavier = new ClavierTestPanel(this);
+   clavier = new ClavierTestPanel(this);
+   add(clavier, BorderLayout.SOUTH);
+        
+    // Création de l'image du pendu
+        imagePendu = new ImagePendu();  // Initialisation de l'objet imagePendu
+        add(imagePendu, BorderLayout.CENTER);  // Ajout du label dans le centre
+       
+
 // Rendre la fenêtre visible
         setVisible(true);
       
  }
- 
+
     void verifierLettre(char lettre) {
     boolean trouve = false;
     
@@ -86,6 +94,7 @@ public class Test extends JFrame {
  if (!trouve) {
         erreurs++;
         labelErreurs.setText("Erreurs : " + erreurs + " / 6");
+       imagePendu.incrementerErreurs();
 
 // si le joueur a perdu 
 
@@ -102,13 +111,15 @@ if (erreurs >= 6) {
     }
 }
 }
-// pour recommencer le jeu si on a gagné ou si on a fait trop d'erreur 
+    
+ //  private JLabel labelPendu;
 
     private void resetGame() {
     MotsTest motsTest = new MotsTest();
     motADeviner = motsTest.choisirMot();
     motAffiche = new char[motADeviner.length()];
     erreurs = 0;
+    imagePendu.resetErreurs();
 
 
     for (int i = 0; i < motAffiche.length; i++) {
@@ -118,19 +129,22 @@ if (erreurs >= 6) {
     labelMot.setText(new String(motAffiche));
     labelErreurs.setText("Erreurs : 0 / 6");
     
-    // Réactiver tous les boutons du clavier
-    for (Component comp : getContentPane().getComponents()) {
-        if (comp instanceof ClavierTestPanel clavierTestPanel) {
-            clavierTestPanel.resetClavier();
-        }
-    }
    
-}
- public static void main(String[] args) {
+    
+    // Réactiver tous les boutons du clavier
+   // for (Component comp : getContentPane().getComponents()) {
+     //   if (comp instanceof ClavierTestPanel ) {
+     //      (( ClavierTestPanel) comp).resetClavier();
+      //  }
+
+    clavier.resetClavier(); 
+    }
+   public static void main(String[] args) {
       new Test();
     }   
-   
-
 }
+
+
+
     
    

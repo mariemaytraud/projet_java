@@ -9,9 +9,8 @@ package pendu;
  * @author MARIE
  */
 public class MainPendu {
-    public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(() -> new Test()); // Lance la fenêtre en mode graphique
-    }
+  
+     public static void main(String[] args) {
 }
-    
+}
 
