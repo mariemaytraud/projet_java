@@ -64,21 +64,3 @@ public class ImagePendu extends JPanel {
     }
 }
 
-//private JLabel labelPendu;
-//   labelPendu = new JLabel(); 
-//    labelPendu.setIcon(new ImageIcon("path_to_image.png"));
-// void updatePenduImage(int erreurs) {
-//   labelPendu = new JLabel();
-// labelPendu.setHorizontalAlignment(SwingConstants.CENTER);
-// }
-//  Component getLabelPendu() {
-//   return labelPendu;  // Retourne le label qui contient l'image du pendu
-//}
-//void updateImagePendu(int erreurs) {
-// Mets à jour l'image selon le nombre d'erreurs
-//  if (erreurs < 6) {
-// Met à jour l'image du pendu
-//    labelPendu.setIcon(new ImageIcon("path_to_image_" + erreurs + ".png"));
-//}
-//   }
-
