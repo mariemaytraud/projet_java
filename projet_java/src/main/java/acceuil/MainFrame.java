@@ -4,7 +4,6 @@
  */
 package acceuil;
 
-
 /**
  *
  * @author cleme
@@ -12,11 +11,16 @@ package acceuil;
 import calcul.CalculPanel;
 import javax.swing.*;
 import java.awt.*;
+import pendu.PenduPanel;
 
 public class MainFrame extends JFrame {
-    private CalculPanel calculPanel; // Instance de CalculPanel
+
+    private CalculPanel calculPanel;
+    private PenduPanel penduPanel;
+    // Instance de CalculPanel
     private JeuPanel jeuPanel;
     private int niveau;
+
     public MainFrame() {
         this("Jeu pour enfant");
     }
@@ -34,8 +38,9 @@ public class MainFrame extends JFrame {
         EntetePanel entete = new EntetePanel("Jeux pour enfant", this);
         jeuPanel = new JeuPanel(this);
         NiveauPanel niv = new NiveauPanel();
-        calculPanel = new CalculPanel(this); // Instanciation de CalculPanel mais non affiché
-        JeuMenuBar menu = new JeuMenuBar(this, calculPanel); // Passer CalculPanel au menu
+        calculPanel = new CalculPanel(this);
+        penduPanel = new PenduPanel(this);
+        JeuMenuBar menu = new JeuMenuBar(this, calculPanel, penduPanel); // Passer CalculPanel au menu
 
         // Configuration des tailles des panels
         entete.setPreferredSize(new Dimension(getWidth(), 100));
@@ -66,8 +71,12 @@ public class MainFrame extends JFrame {
         return calculPanel;
     }
 
+    public PenduPanel getPenduPanel() {
+        return penduPanel;
+    }
+
     public JeuPanel getJeuPanel() {
         return jeuPanel;
     }
-    
+
 }
