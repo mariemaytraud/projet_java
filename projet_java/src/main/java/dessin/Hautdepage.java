@@ -5,7 +5,6 @@
 package dessin;
 
 import java.awt.BorderLayout;
-import static java.awt.BorderLayout.*;
 import java.awt.Color;
 import javax.swing.*;
 
