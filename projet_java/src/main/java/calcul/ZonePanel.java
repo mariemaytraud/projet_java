@@ -72,4 +72,7 @@ public class ZonePanel extends JPanel {
     public void afficherQuestion(int nombre1, int nombre2, String operation) {
         operationLabel.setText(nombre1 + " " + operation + " " + nombre2 + " = ? ");
     }
+    public JTextField getReponseField() {
+        return reponseField;
+    }
 }
