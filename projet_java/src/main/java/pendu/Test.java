@@ -32,7 +32,7 @@ public class Test extends JFrame {
         // Définir un layout pour la fenêtre (ici, un BorderLayout)
         setLayout(new BorderLayout());
 
-        // Ajouter un panneau d'affichage (on va l'ajouter dans l'étape suivante)
+        // Ajouter un panneau d'affichage 
         JPanel contentPanel = new JPanel();
         contentPanel.setLayout(new BorderLayout());
         add(contentPanel, BorderLayout.CENTER);
