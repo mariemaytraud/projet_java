@@ -23,6 +23,7 @@ public class CalculPanel extends JPanel {
     private int niveau;
     private ZonePanel zonePanel;
     private final BoutonPanel boutonPanel;
+    private JTextField reponseField;
 
     public CalculPanel(MainFrame parentFrame) {
         this.niveau = 1;
@@ -43,7 +44,7 @@ public class CalculPanel extends JPanel {
         boutonPanel.getSolutionBtn().addActionListener(e -> zonePanel.afficherSolution(resultatAttendu));
         nouveauCalcul();
 
-    }    
+    }
 
     // Getter pour récupérer le niveau
     public int getNiveau() {
@@ -60,7 +61,9 @@ public class CalculPanel extends JPanel {
     public final void nouveauCalcul() {
         tirage();
         zonePanel.afficherQuestion(nombre1, nombre2, operation);
+        zonePanel.getReponseField().setText("");
         zonePanel.messageLabel.setText("");
+        zonePanel.getReponseField().requestFocusInWindow();
     }
 
     private void tirage() {
