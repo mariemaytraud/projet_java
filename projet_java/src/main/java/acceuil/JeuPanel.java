@@ -46,5 +46,10 @@ public class JeuPanel extends JPanel {
             parentFrame.revalidate();
             parentFrame.repaint();
         });
+        jb3.addActionListener(e -> {
+            parentFrame.setContentPane(parentFrame.getPenduPanel());
+            parentFrame.revalidate();
+            parentFrame.repaint();
+        });
     }
 }

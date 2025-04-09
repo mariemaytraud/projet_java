@@ -13,15 +13,18 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import pendu.PenduPanel;
 
 public class JeuMenuBar extends JMenuBar {
     private final JFrame parentFrame;
-    private final CalculPanel calculPanel; // Référence à CalculPanel
+    private final CalculPanel calculPanel;
+    private final PenduPanel penduPanel;
     private int niveau;
 
-    public JeuMenuBar(JFrame parentFrame, CalculPanel calculPanel) {
+    public JeuMenuBar(JFrame parentFrame, CalculPanel calculPanel, PenduPanel penduPanel) {
         this.parentFrame = parentFrame;
         this.calculPanel = calculPanel;
+        this.penduPanel = penduPanel;
 
         // Les entêtes du menu
         JMenu jeu = new JMenu("Jeux");
@@ -49,6 +52,11 @@ public class JeuMenuBar extends JMenuBar {
         // Action : Ouvrir le jeu de calcul mental
         calcul.addActionListener(e -> {
             parentFrame.setContentPane(calculPanel);
+            parentFrame.revalidate();
+            parentFrame.repaint();
+        });
+        pendu.addActionListener(e -> {
+            parentFrame.setContentPane(penduPanel);
             parentFrame.revalidate();
             parentFrame.repaint();
         });

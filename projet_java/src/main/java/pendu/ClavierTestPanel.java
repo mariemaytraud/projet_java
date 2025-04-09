@@ -16,35 +16,30 @@ import java.util.ArrayList;
 
 public class ClavierTestPanel extends JPanel {
 
-    private Test jeu ;  // Référence au jeu principal
+    private PenduPanel jeu;  // changé de Test à PenduPanel
     ArrayList<JButton> boutons;
 
-    public ClavierTestPanel(Test jeu) {
-        this.jeu = jeu;  // Permet de communiquer avec la fenêtre principale
+    public ClavierTestPanel(PenduPanel jeu) {
+        this.jeu = jeu;
         this.boutons = new ArrayList<>();
-        setLayout(new GridLayout(3, 9, 5, 5));  // 3 lignes, 9 colonnes, avec un espacement
+        setLayout(new GridLayout(3, 9, 5, 5));
 
-        // Créer les boutons pour chaque lettre de A à Z
         for (char lettre = 'A'; lettre <= 'Z'; lettre++) {
             JButton btnLettre = new JButton(String.valueOf(lettre));
             boutons.add(btnLettre);
             btnLettre.setFont(new Font("Arial", Font.BOLD, 16));
 
-            // pour détecter les clics
-            btnLettre.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    btnLettre.setEnabled(false);  // Désactive le bouton après utilisation
-                    jeu.verifierLettre(btnLettre.getText().charAt(0));  // Appel de la méthode
-                }
+            btnLettre.addActionListener(e -> {
+                btnLettre.setEnabled(false);
+                jeu.verifierLettre(btnLettre.getText().charAt(0));
             });
 
-            add(btnLettre);  // Ajouter le bouton au clavier
+            add(btnLettre);
         }
     }
-    
-public void resetClavier() {
-    for (var bouton : boutons) {
+
+    public void resetClavier() {
+        for (var bouton : boutons) {
             bouton.setEnabled(true);
         }
     }
