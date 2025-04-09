@@ -10,7 +10,7 @@ import javax.swing.JFrame;
  *
  * @author Alexis Burgos
  */
-public class TestDessin {
+public class FrameDessin {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("dessin (niveau 1)");
