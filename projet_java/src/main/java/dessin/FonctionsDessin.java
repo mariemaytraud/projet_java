@@ -17,8 +17,7 @@ import javax.swing.JPanel;
  *
  * @author Alexis Burgos
  */
-import javax.swing.*;
-import java.awt.*;
+
 
 public class FonctionsDessin extends JPanel {
 
