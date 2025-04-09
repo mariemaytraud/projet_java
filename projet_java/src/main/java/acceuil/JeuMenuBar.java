@@ -9,6 +9,7 @@ package acceuil;
  * @author cleme
  */
 import calcul.CalculPanel;
+import dessin.DessinPanel;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -19,12 +20,14 @@ public class JeuMenuBar extends JMenuBar {
     private final JFrame parentFrame;
     private final CalculPanel calculPanel;
     private final PenduPanel penduPanel;
+    private final DessinPanel dessinPanel;
     private int niveau;
 
-    public JeuMenuBar(JFrame parentFrame, CalculPanel calculPanel, PenduPanel penduPanel) {
+    public JeuMenuBar(JFrame parentFrame, CalculPanel calculPanel, PenduPanel penduPanel, DessinPanel dessinPanel) {
         this.parentFrame = parentFrame;
         this.calculPanel = calculPanel;
         this.penduPanel = penduPanel;
+        this.dessinPanel = dessinPanel;
 
         // Les entêtes du menu
         JMenu jeu = new JMenu("Jeux");
@@ -60,15 +63,23 @@ public class JeuMenuBar extends JMenuBar {
             parentFrame.revalidate();
             parentFrame.repaint();
         });
+        dessin.addActionListener(e -> {
+            parentFrame.setContentPane(dessinPanel);
+            parentFrame.revalidate();
+            parentFrame.repaint();
+        });
+        
 
         // Action : Modifier le niveau
         niv1.addActionListener(e -> {
+            dessinPanel.setNiveau(1);
             if (calculPanel != null) {
                 calculPanel.setNiveau(1);
             }
         });
 
         niv2.addActionListener(e -> {
+            dessinPanel.setNiveau(2);
             if (calculPanel != null) {
                 calculPanel.setNiveau(2);
             }

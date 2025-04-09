@@ -43,7 +43,7 @@ public class MainFrame extends JFrame {
         calculPanel = new CalculPanel(this);
         penduPanel = new PenduPanel(this);
         dessinPanel = new DessinPanel(this);
-        JeuMenuBar menu = new JeuMenuBar(this, calculPanel, penduPanel); // Passer CalculPanel au menu
+        JeuMenuBar menu = new JeuMenuBar(this, calculPanel, penduPanel, dessinPanel); // Passer CalculPanel au menu
 
         // Configuration des tailles des panels
         entete.setPreferredSize(new Dimension(getWidth(), 100));
