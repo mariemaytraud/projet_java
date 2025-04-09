@@ -5,6 +5,7 @@
 package dessin;
 
 
+import acceuil.EntetePanel;
 import acceuil.MainFrame;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -29,8 +30,8 @@ public class DessinPanel extends JPanel {
         FonctionsDessin boutons = new FonctionsDessin(ardoise);
         this.add(boutons, BorderLayout.EAST);
         MainFrame main = new MainFrame();
-        Hautdepage haut = new Hautdepage(boutons,main);
-        this.add(haut,BorderLayout.NORTH);
+        EntetePanel entete = new EntetePanel("Dessin",main);
+        this.add(entete,BorderLayout.NORTH);
         this.setBackground(new Color(122, 89, 201));
     }
 
