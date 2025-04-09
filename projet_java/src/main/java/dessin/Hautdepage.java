@@ -4,6 +4,7 @@
  */
 package dessin;
 
+import acceuil.MainFrame;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.*;
@@ -14,14 +15,16 @@ import javax.swing.*;
  */
 public class Hautdepage extends JPanel {
 
-    public Hautdepage(FonctionsDessin fonctions) {
+    public Hautdepage(FonctionsDessin fonctions,MainFrame parentFrame) {
         Color rouge = new Color(122, 89, 201);
         Color blanc = new Color(255, 255, 250);
         BorderLayout bl = new BorderLayout(5, 5);
         this.setLayout(bl);
         JButton acceuil = new JButton("acceuil");
         acceuil.addActionListener((e) -> {
-            
+            parentFrame.setContentPane(parentFrame.getJeuPanel());
+            parentFrame.revalidate();
+            parentFrame.repaint();
         });
         this.add(acceuil, BorderLayout.WEST);
         acceuil.setBackground(blanc);

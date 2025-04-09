@@ -10,7 +10,6 @@ package acceuil;
  */
 import calcul.CalculPanel;
 import dessin.DessinPanel;
-import dessin.FrameDessin;
 import javax.swing.*;
 import java.awt.*;
 import pendu.PenduPanel;
