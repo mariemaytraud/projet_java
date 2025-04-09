@@ -44,18 +44,6 @@ public class MotsTest {
         return listeMots.get(index);
     }
 }
-//    private List<String> listeMots;
-//
-//    public MotsTest() {
-//        listeMots = new ArrayList<>();
-//        
-//    }
-//
-//    // Méthode pour choisir un mot aléatoirement
-//    public String choisirMot() {
-//        Random random = new Random();
-//        int index = random.nextInt(listeMots.size());
-//        return listeMots.get(index);
-//    }
+
 
 

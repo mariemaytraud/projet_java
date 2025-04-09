@@ -17,7 +17,7 @@ public class ListeMots {
     private ArrayList<String> words;
 
     public ListeMots() {
-        this.file = new File("mots.txt");
+        this.file = new File("src/main/resources/mots.txt");
         words = new ArrayList<>();
         loadWords();
     }
