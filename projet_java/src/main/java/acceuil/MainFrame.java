@@ -12,11 +12,13 @@ import calcul.CalculPanel;
 import javax.swing.*;
 import java.awt.*;
 import pendu.PenduPanel;
+import admin.AdminContainerPanel;
 
 public class MainFrame extends JFrame {
 
     private CalculPanel calculPanel;
     private PenduPanel penduPanel;
+    private AdminContainerPanel adminPanel;
     // Instance de CalculPanel
     private JeuPanel jeuPanel;
     private int niveau;
@@ -40,7 +42,9 @@ public class MainFrame extends JFrame {
         NiveauPanel niv = new NiveauPanel();
         calculPanel = new CalculPanel(this);
         penduPanel = new PenduPanel(this);
-        JeuMenuBar menu = new JeuMenuBar(this, calculPanel, penduPanel); // Passer CalculPanel au menu
+        adminPanel = new AdminContainerPanel(); 
+        
+        JeuMenuBar menu = new JeuMenuBar(this, calculPanel, penduPanel, adminPanel); // Passer CalculPanel au menu
 
         // Configuration des tailles des panels
         entete.setPreferredSize(new Dimension(getWidth(), 100));

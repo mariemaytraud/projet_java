@@ -10,30 +10,52 @@ package pendu;
  * @author MARIE
  */
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class MotsTest {
-    
     private List<String> listeMots;
 
     public MotsTest() {
         listeMots = new ArrayList<>();
-        // Ajouter quelques mots à deviner
-        listeMots.add("JAVA");
-        listeMots.add("PROGRAMMATION");
-        listeMots.add("PENDU");
-        listeMots.add("JEUX");
-        listeMots.add("ALGORITHME");
-        listeMots.add("ORDINATEUR");
+
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(this.getClass().getResourceAsStream("/mots.txt")))) {
+            
+            String ligne;
+            while ((ligne = reader.readLine()) != null) {
+                listeMots.add(ligne.trim().toUpperCase()); // On met en majuscules pour standardiser
+            }
+        } catch (IOException | NullPointerException e) {
+            System.err.println("Erreur lors du chargement du fichier de mots : " + e.getMessage());
+        }
     }
 
-    // Méthode pour choisir un mot aléatoirement
     public String choisirMot() {
+        if (listeMots.isEmpty()) {
+            throw new IllegalStateException("La liste de mots est vide !");
+        }
         Random random = new Random();
         int index = random.nextInt(listeMots.size());
         return listeMots.get(index);
     }
 }
+//    private List<String> listeMots;
+//
+//    public MotsTest() {
+//        listeMots = new ArrayList<>();
+//        
+//    }
+//
+//    // Méthode pour choisir un mot aléatoirement
+//    public String choisirMot() {
+//        Random random = new Random();
+//        int index = random.nextInt(listeMots.size());
+//        return listeMots.get(index);
+//    }
+
 

@@ -14,22 +14,25 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import pendu.PenduPanel;
+import admin.AdminContainerPanel;
 
 public class JeuMenuBar extends JMenuBar {
     private final JFrame parentFrame;
     private final CalculPanel calculPanel;
     private final PenduPanel penduPanel;
+    private final AdminContainerPanel adminPanel;
+    
     private int niveau;
 
-    public JeuMenuBar(JFrame parentFrame, CalculPanel calculPanel, PenduPanel penduPanel) {
+    public JeuMenuBar(JFrame parentFrame, CalculPanel calculPanel, PenduPanel penduPanel, AdminContainerPanel adminPanel) {
         this.parentFrame = parentFrame;
         this.calculPanel = calculPanel;
         this.penduPanel = penduPanel;
-
+        this.adminPanel = adminPanel ; 
         // Les entêtes du menu
         JMenu jeu = new JMenu("Jeux");
         JMenu niv = new JMenu("Niveaux");
-        JMenu admin = new JMenu("Compte");
+        JMenu admin = new JMenu("Administrateur");
 
         // Les items du menu
         JMenuItem dessin = new JMenuItem("Ardoise Magique");
@@ -45,6 +48,8 @@ public class JeuMenuBar extends JMenuBar {
         niv.add(niv1);
         niv.add(niv2);
         admin.add(mdp);
+        
+       
         this.add(jeu);
         this.add(niv);
         this.add(admin);
@@ -61,6 +66,12 @@ public class JeuMenuBar extends JMenuBar {
             parentFrame.repaint();
         });
 
+        mdp.addActionListener(e-> {
+            parentFrame.setContentPane(adminPanel);
+            parentFrame.revalidate();
+            parentFrame.repaint();
+        }
+        );
         // Action : Modifier le niveau
         niv1.addActionListener(e -> {
             if (calculPanel != null) {
