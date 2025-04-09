@@ -41,6 +41,11 @@ public class JeuPanel extends JPanel {
         add(jb1);
         add(jb2);
         add(jb3);
+        jb1.addActionListener(e -> {
+            parentFrame.setContentPane(parentFrame.getDessinPanel());
+            parentFrame.revalidate();
+            parentFrame.repaint();
+        });
         jb2.addActionListener(e -> {
             parentFrame.setContentPane(parentFrame.getCalculPanel());
             parentFrame.revalidate();

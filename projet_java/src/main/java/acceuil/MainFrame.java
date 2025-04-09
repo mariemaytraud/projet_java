@@ -9,6 +9,8 @@ package acceuil;
  * @author cleme
  */
 import calcul.CalculPanel;
+import dessin.DessinPanel;
+import dessin.FrameDessin;
 import javax.swing.*;
 import java.awt.*;
 import pendu.PenduPanel;
@@ -17,6 +19,7 @@ public class MainFrame extends JFrame {
 
     private CalculPanel calculPanel;
     private PenduPanel penduPanel;
+    private DessinPanel dessinPanel; 
     // Instance de CalculPanel
     private JeuPanel jeuPanel;
     private int niveau;
@@ -40,6 +43,7 @@ public class MainFrame extends JFrame {
         NiveauPanel niv = new NiveauPanel();
         calculPanel = new CalculPanel(this);
         penduPanel = new PenduPanel(this);
+        dessinPanel = new DessinPanel(this);
         JeuMenuBar menu = new JeuMenuBar(this, calculPanel, penduPanel); // Passer CalculPanel au menu
 
         // Configuration des tailles des panels
@@ -74,9 +78,11 @@ public class MainFrame extends JFrame {
     public PenduPanel getPenduPanel() {
         return penduPanel;
     }
+    public DessinPanel getDessinPanel() {
+        return dessinPanel;
+    }
 
     public JeuPanel getJeuPanel() {
         return jeuPanel;
     }
-
 }

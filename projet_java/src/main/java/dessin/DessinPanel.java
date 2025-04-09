@@ -4,6 +4,8 @@
  */
 package dessin;
 
+
+import acceuil.MainFrame;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -14,11 +16,11 @@ import javax.swing.JPanel;
  */
 public class DessinPanel extends JPanel {
 
-    public DessinPanel() {
+    public DessinPanel(MainFrame parentFrame) {
         initGui();
     }
 
-    private void initGui() {
+    private void initGui() { 
         BorderLayout bl = new BorderLayout(5, 5);
         this.setLayout(bl);
         this.add(new ArdoisePanel(), BorderLayout.CENTER);

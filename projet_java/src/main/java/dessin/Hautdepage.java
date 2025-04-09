@@ -20,6 +20,9 @@ public class Hautdepage extends JPanel {
         BorderLayout bl = new BorderLayout(5, 5);
         this.setLayout(bl);
         JButton acceuil = new JButton("acceuil");
+        acceuil.addActionListener((e) -> {
+            
+        });
         this.add(acceuil, BorderLayout.WEST);
         acceuil.setBackground(blanc);
         JLabel titre = new JLabel();
@@ -42,5 +45,4 @@ public class Hautdepage extends JPanel {
         m.add(niveau);
         this.add(m,BorderLayout.NORTH);
     }
-
 }
