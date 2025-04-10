@@ -51,17 +51,15 @@ public class DessinPanel extends JPanel {
         this.setLayout(bl);
         
         // Création de l'ardoise (zone de dessin)
+        EntetePanel entete = new EntetePanel("Ardoise Magique", parentFrame);
+        add(entete, BorderLayout.NORTH);
         ardoise = new ArdoisePanel();
         this.add(ardoise, BorderLayout.CENTER);
         
         // Création du panneau de fonctions (boutons)
         fonctionsPanel = createFonctionsPanel();
         this.add(fonctionsPanel, BorderLayout.EAST);
-        
-        // Création de l'entête avec un titre approprié
-        entete = new EntetePanel("Dessin", parentFrame);
-        this.add(entete, BorderLayout.NORTH);
-        
+                
         // Couleur de fond
         this.setBackground(new Color(122, 89, 201));
     }
@@ -71,8 +69,7 @@ public class DessinPanel extends JPanel {
         panel.setLayout(new GridLayout(0, 1));
         
         // Création des composants
-        creerComposants();
-        
+        creerComposants();        
         // Afficher les composants selon le niveau
         afficherSelonNiveau(panel);
         
@@ -157,8 +154,6 @@ public class DessinPanel extends JPanel {
         panel.removeAll(); // Supprimer tous les composants
 
         if (niveau == 1) {
-            // Mettre à jour le titre de l'entête pour refléter le niveau
-            entete.setTitre("Dessin - Niveau 1");
             
             ardoise.setCouleurStylo(Color.BLUE);
             panel.add(vert);
@@ -167,8 +162,6 @@ public class DessinPanel extends JPanel {
             panel.add(gomme);
             panel.add(effacer);
         } else if (niveau == 2) {
-            // Mettre à jour le titre de l'entête pour refléter le niveau
-            entete.setTitre("Dessin - Niveau 2");
             
             ardoise.setCouleurStylo(Color.BLUE);
             panel.add(palette);
