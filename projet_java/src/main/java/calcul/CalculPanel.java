@@ -31,7 +31,6 @@ public class CalculPanel extends JPanel {
         EntetePanel entete = new EntetePanel("Calcul Mental", parentFrame);
         add(entete, BorderLayout.NORTH);
 
-        // Ajouter l'entête avec le bouton retour
         // Création des panneaux ZonePanel et BoutonPanel
         zonePanel = new ZonePanel(); // On passe le niveau
         boutonPanel = new BoutonPanel();

@@ -1,0 +1,4 @@
+manger
+ballon
+train
+chaussette

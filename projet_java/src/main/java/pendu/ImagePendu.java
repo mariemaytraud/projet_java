@@ -6,7 +6,6 @@ package pendu;
 
 import javax.swing.*;
 import java.awt.*;
-//import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
@@ -21,7 +20,7 @@ public class ImagePendu extends JPanel {
 
     public ImagePendu() {
      
-        setPreferredSize(new Dimension(150, 150));
+        setPreferredSize(new Dimension(700, 100));
         setBackground(Color.WHITE);
 
         try {

@@ -24,7 +24,6 @@ public class DessinPanel extends JPanel {
     private int niveau = 1;
     private ArdoisePanel ardoise;
     private MainFrame parentFrame;
-    private EntetePanel entete;
     
     // Boutons de dessin
     private JButton vert;
