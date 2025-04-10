@@ -22,9 +22,14 @@ public class MotsTest {
 
     public MotsTest() {
         listeMots = new ArrayList<>();
+         listeMots.add("TABLE");
+        listeMots.add("BALLON");
+        listeMots.add("FOOT");
+        listeMots.add("PRINCESSE");
+        listeMots.add("SOLEIL");
+        listeMots.add("NUAGE");
 
-        try (BufferedReader reader = new BufferedReader(
-                new InputStreamReader(this.getClass().getResourceAsStream("/mots.txt")))) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("/mots.txt")))) {
             
             String ligne;
             while ((ligne = reader.readLine()) != null) {
